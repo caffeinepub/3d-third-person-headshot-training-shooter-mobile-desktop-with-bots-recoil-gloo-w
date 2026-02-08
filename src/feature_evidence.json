@@ -1,0 +1,91 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-current-placeholder-sphere-meshes-used-for-the-player-and-enemy-bots-with-lightweight-original-non-copyrighted-real-3d-character-models-suitable-for-third-person-gameplay-including-basic-animations-at-minimum-idle-run-walk-while-preserving-existing-hit-detection-for-head-vs-body",
+      "featureTitle": "Replace the current placeholder sphere meshes used for the player and enemy bots with lightweight, original (non-copyrighted) real 3D character models suitable for third-person gameplay, including basic animations (at minimum: idle + run/walk) while preserving existing hit detection for head vs body.",
+      "files": [
+        "frontend/src/game/bots/BotCharacter.tsx",
+        "frontend/src/game/player/PlayerController.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-multiple-gun-options-for-the-player-and-allow-switching-between-them-during-gameplay-with-each-gun-having-distinct-combat-parameters-at-minimum-fire-rate-max-ammo-mag-size-and-recoil-intensity-and-reflected-correctly-in-shooting-behavior-and-ammo-ui",
+      "featureTitle": "Add multiple gun options for the player and allow switching between them during gameplay, with each gun having distinct combat parameters (at minimum: fire rate, max ammo/mag size, and recoil intensity) and reflected correctly in shooting behavior and ammo UI.",
+      "files": [
+        "frontend/src/game/combat/RecoilSystem.ts",
+        "frontend/src/game/combat/useWeaponSystem.ts",
+        "frontend/src/game/controls/useDesktopControls.ts",
+        "frontend/src/game/state/gameStore.ts",
+        "frontend/src/hud/controls/ActionButtons.tsx",
+        "frontend/src/hud/widgets/AmmoCounter.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-give-enemy-bots-guns-and-implement-enemy-return-fire-that-can-hit-and-damage-the-player-including-a-player-health-value-that-decreases-on-hits-and-is-shown-in-the-hud-health-bar",
+      "featureTitle": "Give enemy bots guns and implement enemy return fire that can hit and damage the player, including a player health value that decreases on hits and is shown in the HUD health bar.",
+      "files": [
+        "frontend/src/game/bots/BotCharacter.tsx",
+        "frontend/src/game/player/PlayerController.tsx",
+        "frontend/src/game/state/gameStore.ts",
+        "frontend/src/game/world/ArenaMap.tsx",
+        "frontend/src/hud/widgets/HealthBar.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-adjust-the-on-screen-action-button-layout-to-keep-more-distance-between-buttons-for-better-mobile-ergonomics-while-preserving-the-existing-set-of-actions-fire-ads-jump-crouch-reload-shield-and-ensuring-buttons-remain-reachable-in-landscape-orientation",
+      "featureTitle": "Adjust the on-screen action button layout to keep more distance between buttons for better mobile ergonomics, while preserving the existing set of actions (Fire, ADS, Jump, Crouch, Reload, Shield) and ensuring buttons remain reachable in landscape orientation.",
+      "files": [
+        "frontend/src/hud/controls/ActionButtons.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

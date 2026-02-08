@@ -1,0 +1,106 @@
+{
+  "kind": "build_request",
+  "title": "Add real 3D character models, multiple guns, enemy return fire, and improve HUD button spacing",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "text": "Replace the current placeholder sphere meshes used for the player and enemy bots with lightweight, original (non-copyrighted) real 3D character models suitable for third-person gameplay, including basic animations (at minimum: idle + run/walk) while preserving existing hit detection for head vs body.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Use real 3d character in game for player & enemy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Player character in-game is rendered as a real 3D character model instead of a simple sphere mesh.",
+        "Enemy bots in-game are rendered as real 3D character models instead of the current head/body spheres, while still exposing separate head/body hit zones for raycast hit detection.",
+        "At minimum, characters visibly animate (idle when standing, locomotion when moving).",
+        "No runtime console errors occur from missing assets; the scene still loads inside the existing <Suspense> boundary."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Add multiple gun options for the player and allow switching between them during gameplay, with each gun having distinct combat parameters (at minimum: fire rate, max ammo/mag size, and recoil intensity) and reflected correctly in shooting behavior and ammo UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "add some guns to shoot the enemy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Player can select/switch between at least 2 different guns during gameplay (desktop and mobile accessible).",
+        "Switching guns updates firing cadence and recoil feel (observable difference) and updates max ammo/mag size as defined per gun.",
+        "Ammo counter continues to display accurate current and max ammo for the selected gun.",
+        "Reload behavior continues to work correctly for each gun (including reload lockout while reloading)."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Give enemy bots guns and implement enemy return fire that can hit and damage the player, including a player health value that decreases on hits and is shown in the HUD health bar.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "give the enemy also a gun to shoot the player."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Enemy bots periodically fire toward the player when the player is within a reasonable engagement range and line-of-sight (no shooting through solid cover).",
+        "Player health decreases when hit by enemy shots, and reaches a minimum of 0 (no negative values).",
+        "The HUD health bar reflects the player’s current health percentage (not a static 100%).",
+        "Gameplay remains stable: enemy firing does not significantly degrade performance on mobile defaults."
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Adjust the on-screen action button layout to keep more distance between buttons for better mobile ergonomics, while preserving the existing set of actions (Fire, ADS, Jump, Crouch, Reload, Shield) and ensuring buttons remain reachable in landscape orientation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "keep distance with buttons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Action buttons have increased spacing (gap and/or grouped layout) compared to the current layout so adjacent buttons are less likely to be mis-tapped.",
+        "All action buttons remain fully visible and tappable in 1280x720 landscape and on smaller mobile landscape widths.",
+        "Button interactions still work (touch start/end and mouse down/up) as before."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Keep the backend as a single Motoko actor; do not introduce additional backend services or external databases.",
+    "Use only original/non-copyrighted 3D assets for any added character or weapon models."
+  ],
+  "nonGoals": [
+    "Adding multiplayer, real-time networking, or chat.",
+    "Third-party authentication beyond Internet Identity.",
+    "Adding external asset/CDN pipelines or serving generated assets from the backend."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

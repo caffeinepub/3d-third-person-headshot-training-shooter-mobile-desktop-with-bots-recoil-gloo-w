@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "High-quality 3D third-person headshot training/aim practice shooter for mobile + desktop (landscape 1280x720), inspired by Free Fire-style mechanics/UI (original assets only), with realistic graphics, smooth responsive controls, optimized performance, deployable shield ability, real 3D character models for player/enemies, multiple guns, and enemy bots that can shoot back.",
+  "architectural_notes": [
+    "Use original (non-copyrighted) assets; inspiration limited to gameplay style/UI structure.",
+    "Target platforms: mobile + desktop; landscape orientation at 1280x720.",
+    "Performance-first approach: lightweight assets and mobile FPS optimization while maintaining realistic visuals."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-3d-third-person-shooter-scene-using-three-js-via-react-three-fiber-running-inside-the-react-app-targeting-a-landscape-1280x720-layout-that-scales-responsively-for-mobile-desktop-while-preserving-a-consistent-gameplay-camera-framing",
+      "title": "Create the core 3D third-person shooter scene using Three.js via React Three Fiber, running inside the React app, targeting a landscape 1280x720 layout that scales responsively for mobile + desktop while preserving a consistent gameplay camera framing.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-smooth-third-person-character-controller-with-responsive-movement-jump-crouch-and-smooth-camera-follow-including-an-optional-ads-aim-down-sights-zoom-mode-that-tightens-fov-and-adjusts-aim-sensitivity",
+      "title": "Implement a smooth third-person character controller with responsive movement, jump, crouch, and smooth camera follow, including an optional ADS (aim-down-sights) zoom mode that tightens FOV and adjusts aim sensitivity.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-headshot-training-gameplay-spawn-moving-enemy-bots-in-a-training-arena-and-implement-hit-detection-that-distinguishes-headshots-vs-body-shots-tracking-training-score-and-a-headshot-counter",
+      "title": "Add headshot training gameplay: spawn moving enemy bots in a training arena and implement hit detection that distinguishes headshots vs body shots, tracking training score and a headshot counter.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-fast-responsive-shooting-mechanics-including-ammo-count-reload-behavior-if-included-muzzle-flash-feedback-and-a-realistic-recoil-system-that-affects-aim-camera-and-is-consistent-across-mobile-and-desktop-input-methods",
+      "title": "Implement fast, responsive shooting mechanics including ammo count, reload behavior (if included), muzzle flash/feedback, and a realistic recoil system that affects aim/camera and is consistent across mobile and desktop input methods.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-training-arena-map-an-open-area-with-multiple-obstacles-providing-cover-with-modern-lighting-natural-shadows-and-a-cinematic-competitive-color-grade-while-keeping-assets-lightweight-for-performance",
+      "title": "Create a training arena map: an open area with multiple obstacles providing cover, with modern lighting, natural shadows, and a cinematic competitive color grade while keeping assets lightweight for performance.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-aim-assist-as-a-user-toggleable-option-and-implement-adjustable-sensitivity-settings-at-minimum-look-sensitivity-and-ads-sensitivity-that-affect-both-desktop-and-mobile-aiming",
+      "title": "Add aim assist as a user-toggleable option and implement adjustable sensitivity settings (at minimum: look sensitivity and ADS sensitivity) that affect both desktop and mobile aiming.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-deployable-shield-ability-inspired-by-a-gloo-wall-mechanic-but-with-a-unique-original-design-quick-deploy-button-placement-in-front-of-the-player-collision-cover-behavior-and-a-limited-cooldown-system-with-ui-feedback",
+      "title": "Implement a deployable shield ability inspired by a “Gloo Wall” mechanic but with a unique original design: quick deploy button, placement in front of the player, collision/cover behavior, and a limited cooldown system with UI feedback.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-clean-modern-hud-inspired-by-free-fire-style-structure-original-assets-only-health-bar-ammo-counter-mini-map-crosshair-and-action-buttons-fire-scope-ads-jump-crouch-shield-optimized-for-touch-ergonomics-in-landscape-orientation",
+      "title": "Build a clean, modern HUD inspired by Free Fire-style structure (original assets only): health bar, ammo counter, mini-map, crosshair, and action buttons (fire, scope/ADS, jump, crouch, shield) optimized for touch ergonomics in landscape orientation.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-audio-feedback-realistic-original-gunfire-sound-and-distinct-headshot-hit-confirmation-sound-include-basic-volume-controls-in-settings",
+      "title": "Add audio feedback: realistic (original) gunfire sound and distinct headshot hit confirmation sound; include basic volume controls in settings.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-for-smooth-performance-on-mobile-implement-quality-performance-toggles-e-g-shadows-postprocessing-texture-detail-sensible-default-settings-and-ensure-smooth-animations-and-input-responsiveness",
+      "title": "Optimize for smooth performance on mobile: implement quality/performance toggles (e.g., shadows/postprocessing/texture detail), sensible default settings, and ensure smooth animations and input responsiveness.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-persist-player-settings-aim-assist-toggle-sensitivities-audio-volume-quality-settings-and-a-best-score-highest-headshot-record-per-user-use-internet-identity-when-available-otherwise-store-locally-for-anonymous-play",
+      "title": "Persist player settings (aim assist toggle, sensitivities, audio volume, quality settings) and a best-score/highest-headshot record per user. Use Internet Identity when available; otherwise store locally for anonymous play.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-across-ui-colors-typography-panel-styles-suitable-for-a-competitive-training-shooter-with-a-modern-cinematic-feel-avoid-using-blue-purple-as-the-primary-palette",
+      "title": "Apply a cohesive visual theme across UI (colors, typography, panel styles) suitable for a competitive training shooter with a modern, cinematic feel (avoid using blue/purple as the primary palette).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-original-non-copyrighted-for-hud-icons-and-key-game-ui-elements-and-load-them-from-frontend-public-assets-generated-do-not-serve-generated-images-from-the-backend",
+      "title": "Add generated static image assets (original, non-copyrighted) for HUD icons and key game UI elements, and load them from frontend/public/assets/generated (do not serve generated images from the backend).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-placeholder-sphere-meshes-used-for-the-player-and-enemy-bots-with-lightweight-original-non-copyrighted-real-3d-character-models-suitable-for-third-person-gameplay-including-basic-animations-at-minimum-idle-run-walk-while-preserving-existing-hit-detection-for-head-vs-body",
+      "title": "Replace the current placeholder sphere meshes used for the player and enemy bots with lightweight, original (non-copyrighted) real 3D character models suitable for third-person gameplay, including basic animations (at minimum: idle + run/walk) while preserving existing hit detection for head vs body.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-multiple-gun-options-for-the-player-and-allow-switching-between-them-during-gameplay-with-each-gun-having-distinct-combat-parameters-at-minimum-fire-rate-max-ammo-mag-size-and-recoil-intensity-and-reflected-correctly-in-shooting-behavior-and-ammo-ui",
+      "title": "Add multiple gun options for the player and allow switching between them during gameplay, with each gun having distinct combat parameters (at minimum: fire rate, max ammo/mag size, and recoil intensity) and reflected correctly in shooting behavior and ammo UI.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-give-enemy-bots-guns-and-implement-enemy-return-fire-that-can-hit-and-damage-the-player-including-a-player-health-value-that-decreases-on-hits-and-is-shown-in-the-hud-health-bar",
+      "title": "Give enemy bots guns and implement enemy return fire that can hit and damage the player, including a player health value that decreases on hits and is shown in the HUD health bar.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-on-screen-action-button-layout-to-keep-more-distance-between-buttons-for-better-mobile-ergonomics-while-preserving-the-existing-set-of-actions-fire-ads-jump-crouch-reload-shield-and-ensuring-buttons-remain-reachable-in-landscape-orientation",
+      "title": "Adjust the on-screen action button layout to keep more distance between buttons for better mobile ergonomics, while preserving the existing set of actions (Fire, ADS, Jump, Crouch, Reload, Shield) and ensuring buttons remain reachable in landscape orientation.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Core 3D third-person shooter gameplay for headshot/aim training with responsive controls and realistic physics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Cross-platform support (mobile + desktop), landscape orientation, target resolution 1280x720",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Training mode with moving enemy bots plus scoring: training score and headshot counter",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Aiming systems: smooth camera movement, crosshair, optional ADS zoom, aim assist toggle",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Weapon handling: fast responsive shooting mechanics with realistic recoil system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Training arena map: open area with obstacles/cover, realistic environment lighting",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Deployable shield ability (\"Gloo Wall\"-style but unique design) with quick-deploy button and cooldown",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Settings UI: adjustable sensitivity settings + sensitivity settings panel",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Game HUD/UI inspired by Free Fire layout (original assets): health bar, ammo counter, mini-map, fire/scope/jump/crouch buttons, shield button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Audio: realistic gun sounds and headshot hit sound feedback",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Visual target: realistic 3D graphics with modern lighting, natural shadows, cinematic color grading, high-quality optimized textures",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Performance targets: mobile-optimized high FPS/low lag, smooth animations, lightweight assets",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Backend: implement a single Motoko actor API to store and retrieve per-user settings and best records (score/headshots) keyed by caller principal, with safe defaults for first-time users.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Use real 3D character models/rigs for the player and enemy bots (original/non-copyrighted), suitable for third-person gameplay",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Add multiple guns/weapon options for the player (beyond a single default weapon) to shoot enemies",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Enable enemy bots to have guns and shoot the player (return fire) as part of training gameplay",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Adjust HUD/touch control button spacing to keep proper distance between buttons for better mobile ergonomics",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "3d",
+  "projectName": "3D Third-Person Headshot Training Shooter (Mobile + Desktop) with Bots, Recoil, Gloo-Wall Ability, and Free-Fire-Inspired HUD (Original Assets)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

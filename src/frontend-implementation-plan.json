@@ -1,0 +1,159 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "3D character models, multi-weapon switching, enemy return fire, and improved mobile HUD spacing",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "summary": "Replace placeholder player/enemy sphere visuals with original lightweight 3D character models + idle/locomotion animations while preserving separate head/body hit zones.",
+      "acceptanceCriteria": [
+        "Player character in-game is rendered as a real 3D character model instead of a simple sphere mesh.",
+        "Enemy bots in-game are rendered as real 3D character models instead of the current head/body spheres, while still exposing separate head/body hit zones for raycast hit detection.",
+        "At minimum, characters visibly animate (idle when standing, locomotion when moving).",
+        "No runtime console errors occur from missing assets; the scene still loads inside the existing <Suspense> boundary."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/models/player-character.glb",
+          "operation": "create",
+          "description": "Add an original, non-copyrighted, lightweight third-person character GLB with at least Idle and Walk/Run animations."
+        },
+        {
+          "path": "frontend/public/assets/models/enemy-bot-character.glb",
+          "operation": "create",
+          "description": "Add an original, non-copyrighted, lightweight enemy bot character GLB with at least Idle and Walk/Run animations."
+        },
+        {
+          "path": "frontend/public/assets/models/README.md",
+          "operation": "create",
+          "description": "Document asset provenance (original/non-copyrighted), intended use, and any attribution/license notes for the added 3D models."
+        },
+        {
+          "path": "frontend/src/game/player/PlayerController.tsx",
+          "operation": "modify",
+          "description": "Render a real 3D player character model instead of the visible sphere while keeping the existing physics collider; tag the collider/targetable meshes with userData needed for raycasts and enemy line-of-sight checks."
+        },
+        {
+          "path": "frontend/src/game/bots/BotCharacter.tsx",
+          "operation": "modify",
+          "description": "Render a real 3D bot character model (idle/locomotion) while keeping separate invisible head/body hit-zone meshes (with existing userData.type = head/body) so hit detection continues to work."
+        },
+        {
+          "path": "frontend/src/game/bots/BotManager.tsx",
+          "operation": "modify",
+          "description": "Ensure bot instances provide any additional per-bot data needed for animation state (idle vs moving) without changing the required bot spawn behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Add at least two distinct player guns and support switching during gameplay, with per-gun fire rate, mag size, and recoil reflected in behavior and ammo UI.",
+      "acceptanceCriteria": [
+        "Player can select/switch between at least 2 different guns during gameplay (desktop and mobile accessible).",
+        "Switching guns updates firing cadence and recoil feel (observable difference) and updates max ammo/mag size as defined per gun.",
+        "Ammo counter continues to display accurate current and max ammo for the selected gun.",
+        "Reload behavior continues to work correctly for each gun (including reload lockout while reloading)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/models/weapons/rifle.glb",
+          "operation": "create",
+          "description": "Add an original, non-copyrighted, lightweight weapon model for the first gun option."
+        },
+        {
+          "path": "frontend/public/assets/models/weapons/smg.glb",
+          "operation": "create",
+          "description": "Add an original, non-copyrighted, lightweight weapon model for the second gun option."
+        },
+        {
+          "path": "frontend/src/game/state/gameStore.ts",
+          "operation": "modify",
+          "description": "Extend game state to support multiple weapon definitions (at minimum: fire rate, mag size/max ammo, recoil intensity), current selected weapon, and weapon-aware reload/ammo state transitions."
+        },
+        {
+          "path": "frontend/src/game/combat/useWeaponSystem.ts",
+          "operation": "modify",
+          "description": "Update firing cadence to use the selected weapon’s fire rate; apply recoil scaled by the selected weapon’s recoil intensity; ensure ammo consumption uses the selected weapon’s mag size and respects reload lockout."
+        },
+        {
+          "path": "frontend/src/game/combat/RecoilSystem.ts",
+          "operation": "modify",
+          "description": "Support variable recoil intensity so different guns have distinct recoil feel while maintaining existing decay behavior."
+        },
+        {
+          "path": "frontend/src/game/controls/useDesktopControls.ts",
+          "operation": "modify",
+          "description": "Add desktop-accessible weapon switching controls (e.g., number keys / cycling) that update the selected weapon without breaking existing movement/action bindings."
+        },
+        {
+          "path": "frontend/src/hud/widgets/AmmoCounter.tsx",
+          "operation": "modify",
+          "description": "Bind ammo UI to the selected weapon’s current ammo and max ammo/mag size, and keep reload status accurate per weapon."
+        },
+        {
+          "path": "frontend/src/hud/controls/ActionButtons.tsx",
+          "operation": "modify",
+          "description": "Add a mobile-accessible weapon switch control (e.g., cycle/next gun) while preserving the existing action set (Fire, ADS, Jump, Crouch, Reload, Shield) and keeping interactions consistent."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Give enemy bots return fire with line-of-sight checks, add player health that decreases on hits, and show health percentage in the HUD health bar.",
+      "acceptanceCriteria": [
+        "Enemy bots periodically fire toward the player when the player is within a reasonable engagement range and line-of-sight (no shooting through solid cover).",
+        "Player health decreases when hit by enemy shots, and reaches a minimum of 0 (no negative values).",
+        "The HUD health bar reflects the player’s current health percentage (not a static 100%).",
+        "Gameplay remains stable: enemy firing does not significantly degrade performance on mobile defaults."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/game/state/gameStore.ts",
+          "operation": "modify",
+          "description": "Add player health state (current/max), a damage function that clamps at 0, and any minimal combat state needed to support enemy hits without affecting existing scoring/ammo logic."
+        },
+        {
+          "path": "frontend/src/hud/widgets/HealthBar.tsx",
+          "operation": "modify",
+          "description": "Render the health bar width based on the player’s current health percentage from the game store (not a static 100%)."
+        },
+        {
+          "path": "frontend/src/game/bots/BotCharacter.tsx",
+          "operation": "modify",
+          "description": "Implement bot return-fire behavior with per-bot cooldown and engagement rules; perform a line-of-sight raycast toward the player and apply damage only when unobstructed; keep the logic lightweight for mobile performance."
+        },
+        {
+          "path": "frontend/src/game/world/ArenaMap.tsx",
+          "operation": "modify",
+          "description": "Ensure cover obstacles are raycast-detectable as solid blockers for enemy line-of-sight checks (e.g., via consistent mesh presence/userData tagging if needed) without changing the map layout."
+        },
+        {
+          "path": "frontend/src/game/player/PlayerController.tsx",
+          "operation": "modify",
+          "description": "Ensure the player target/collider is identifiable for enemy-hit raycasts (e.g., userData tagging) while keeping existing movement and physics behavior intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Increase spacing between on-screen action buttons for better mobile ergonomics while keeping all existing actions reachable in landscape.",
+      "acceptanceCriteria": [
+        "Action buttons have increased spacing (gap and/or grouped layout) compared to the current layout so adjacent buttons are less likely to be mis-tapped.",
+        "All action buttons remain fully visible and tappable in 1280x720 landscape and on smaller mobile landscape widths.",
+        "Button interactions still work (touch start/end and mouse down/up) as before."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hud/controls/ActionButtons.tsx",
+          "operation": "modify",
+          "description": "Adjust the action button container layout (e.g., larger gaps, grouping into rows/columns, responsive positioning) to increase spacing while keeping Fire/ADS/Jump/Crouch/Reload/Shield present and functional for touch and mouse."
+        },
+        {
+          "path": "frontend/src/hud/HUD.tsx",
+          "operation": "modify",
+          "description": "If needed to prevent overlap on smaller landscape widths, adjust HUD composition/ordering so ActionButtons remain fully visible and reachable without introducing new routes or screens."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T07:00:45.626Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-15",
+        "summary": "Replace the current placeholder sphere meshes used for the player and enemy bots with lightweight, original (non-copyrighted) real 3D character models suitable for third-person gameplay, including basic animations (at minimum: idle + run/walk) while preserving existing hit detection for head vs body.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/models/player-character.glb",
+          "frontend/public/assets/models/enemy-bot-character.glb",
+          "frontend/public/assets/models/README.md",
+          "frontend/src/game/player/PlayerController.tsx",
+          "frontend/src/game/bots/BotCharacter.tsx",
+          "frontend/src/game/bots/BotManager.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/models/player-character.glb",
+          "frontend/public/assets/models/enemy-bot-character.glb",
+          "frontend/public/assets/models/README.md",
+          "frontend/src/game/player/PlayerController.tsx",
+          "frontend/src/game/bots/BotCharacter.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Add multiple gun options for the player and allow switching between them during gameplay, with each gun having distinct combat parameters (at minimum: fire rate, max ammo/mag size, and recoil intensity) and reflected correctly in shooting behavior and ammo UI.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/models/weapons/rifle.glb",
+          "frontend/public/assets/models/weapons/smg.glb",
+          "frontend/src/game/state/gameStore.ts",
+          "frontend/src/game/combat/useWeaponSystem.ts",
+          "frontend/src/game/combat/RecoilSystem.ts",
+          "frontend/src/game/controls/useDesktopControls.ts",
+          "frontend/src/hud/widgets/AmmoCounter.tsx",
+          "frontend/src/hud/controls/ActionButtons.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/models/weapons/rifle.glb",
+          "frontend/public/assets/models/weapons/smg.glb",
+          "frontend/src/game/state/gameStore.ts",
+          "frontend/src/game/combat/useWeaponSystem.ts",
+          "frontend/src/game/combat/RecoilSystem.ts",
+          "frontend/src/game/controls/useDesktopControls.ts",
+          "frontend/src/hud/widgets/AmmoCounter.tsx",
+          "frontend/src/hud/controls/ActionButtons.tsx"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Give enemy bots guns and implement enemy return fire that can hit and damage the player, including a player health value that decreases on hits and is shown in the HUD health bar.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/game/state/gameStore.ts",
+          "frontend/src/hud/widgets/HealthBar.tsx",
+          "frontend/src/game/bots/BotCharacter.tsx",
+          "frontend/src/game/world/ArenaMap.tsx",
+          "frontend/src/game/player/PlayerController.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/game/state/gameStore.ts",
+          "frontend/src/hud/widgets/HealthBar.tsx",
+          "frontend/src/game/bots/BotCharacter.tsx",
+          "frontend/src/game/world/ArenaMap.tsx",
+          "frontend/src/game/player/PlayerController.tsx"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Adjust the on-screen action button layout to keep more distance between buttons for better mobile ergonomics, while preserving the existing set of actions (Fire, ADS, Jump, Crouch, Reload, Shield) and ensuring buttons remain reachable in landscape orientation.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hud/controls/ActionButtons.tsx",
+          "frontend/src/hud/HUD.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hud/controls/ActionButtons.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/models/README.md",
+    "frontend/public/assets/models/enemy-bot-character.glb",
+    "frontend/public/assets/models/player-character.glb",
+    "frontend/public/assets/models/weapons/rifle.glb",
+    "frontend/public/assets/models/weapons/smg.glb",
+    "frontend/src/game/bots/BotCharacter.tsx",
+    "frontend/src/game/combat/RecoilSystem.ts",
+    "frontend/src/game/combat/useWeaponSystem.ts",
+    "frontend/src/game/controls/useDesktopControls.ts",
+    "frontend/src/game/player/PlayerController.tsx",
+    "frontend/src/game/state/gameStore.ts",
+    "frontend/src/game/world/ArenaMap.tsx",
+    "frontend/src/hud/controls/ActionButtons.tsx",
+    "frontend/src/hud/widgets/AmmoCounter.tsx",
+    "frontend/src/hud/widgets/HealthBar.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
